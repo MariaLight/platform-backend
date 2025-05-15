@@ -1,7 +1,7 @@
 const express = require('express'),
     router = express.Router();
 
-const service = require('..//services/users.service')
+const service = require('../services/users.service')
 
 router.get('/', async (req, res) => {
     const users = await service.getAllUsers();
@@ -21,6 +21,12 @@ router.delete('/:id', async (req, res) => {
         res.status(404).json('Такого пользователя нет ' + req.params.id)
     } else {
         res.send('successfully deleted')
+    }
+})
+router.post('/', async (req, res) => {
+    const affectedRows = await service.addUser(req.params);
+    if (affectedRows.length == 0) {
+        res.send('successfully added')
     }
 })
 
