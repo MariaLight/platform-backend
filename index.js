@@ -9,6 +9,7 @@ const rolesRoutes = require('./controllers/roles.controller');
 const coursesRoutes = require('./controllers/courses.controller');
 const modulesRoutes = require('./controllers/modules.controller');
 const lessonsRoutes = require('./controllers/lessons.controller');
+const userCoursesRoutes = require('./controllers/user-courses.controller');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,6 +28,7 @@ app.use('/api/roles', rolesRoutes);
 app.use('/api/courses', coursesRoutes);
 app.use('/api/modules', modulesRoutes);
 app.use('/api/lessons', lessonsRoutes);
+app.use('/api/user_courses', userCoursesRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err);
