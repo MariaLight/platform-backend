@@ -54,3 +54,19 @@ API будет доступно на `http://localhost:3000`. Проверка: 
 - администратор: `mdlight@mail.ru` / `73456890`
 - редактор: `mdlight97@gmail.com` / `qwerty2020`
 - ученик: `testtest@mail.ru` / `qazxsw`
+
+## Хостинг (Render + Aiven)
+
+API крутится на Render Web Service, база — Aiven MySQL.
+
+На Render в Environment:
+
+- `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME` — из Aiven
+- `DB_SSL=true`
+- `CORS_ORIGIN=*` (пока нет своего сайта)
+- `NODE_VERSION=20`
+- `PORT` не задавать
+
+Build: `npm install`. Start: `npm start`. Ветка: `master`.
+
+Проверка: `https://<имя>.onrender.com/api/health`
